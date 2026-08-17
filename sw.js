@@ -1,5 +1,5 @@
-const CACHE_NAME='anki-world-map-v4';
-const APP_SHELL=['./','./index.html','./countries.json','./world_map.png','./manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png','./icons/icon-maskable-512.png','./icons/apple-touch-icon.png'];
+const CACHE_NAME='anki-world-map-v5';
+const APP_SHELL=['./','./index.html','./countries.json','./world_map.svg','./manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png','./icons/icon-maskable-512.png','./icons/apple-touch-icon.png'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE_NAME).then(c=>c.addAll(APP_SHELL)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE_NAME).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 async function networkFirst(req,fallback){try{const res=await fetch(req,{cache:'no-store'});if(res&&res.status===200){const cp=res.clone();caches.open(CACHE_NAME).then(c=>c.put(req,cp))}return res}catch(e){return(await caches.match(req))||(fallback?await caches.match(fallback):undefined)||Response.error()}}

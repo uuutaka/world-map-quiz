@@ -2,82 +2,156 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="theme-color" content="#eef1f4">
-<meta name="apple-mobile-web-app-title" content="暗記大会 地図編">
+<meta name="apple-mobile-web-app-title" content="地図暗記">
+<meta name="theme-color" content="#f3f6fb">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
-<title>暗記大会 世界地図編</title>
+<title>暗記大会・世界地図編</title>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
 <style>
-:root{--bg:#e7eaee;--card:#f4f5f7;--ink:#172033;--muted:#667085;--line:#d5dae0;--accent:#2457d6;--accent2:#173d98;--soft:#e7edf8;--red:#dc2626;--pink:#f59aa5;--radius:22px}
-*{box-sizing:border-box}
-html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;-webkit-text-size-adjust:100%}
-button,select{font:inherit}button{touch-action:manipulation}
-.app{max-width:760px;margin:0 auto;padding:16px 14px calc(28px + env(safe-area-inset-bottom))}
-header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:4px 2px 16px}
-h1{font-size:clamp(25px,6vw,34px);margin:0;line-height:1.15}.badge{font-size:12px;font-weight:800;background:var(--soft);color:var(--accent2);padding:8px 11px;border-radius:999px;white-space:nowrap}
-.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:17px}.lead{font-size:14px;line-height:1.7;color:var(--muted);margin:0 0 16px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.field{min-width:0}label{display:block;font-size:12px;font-weight:800;color:#475467;margin:0 0 7px}
-select{width:100%;height:48px;border:1px solid #cfd7e4;border-radius:12px;background:#fff;color:var(--ink);font-size:16px;padding:0 12px;outline:none}
-.actions{display:flex;gap:10px;margin-top:17px}button{border:0;border-radius:13px;min-height:50px;padding:0 16px;font-weight:800;cursor:pointer}.primary{background:var(--accent);color:#fff;flex:1}.secondary{background:#e1e6ed;color:#344054}.flip-btn{width:100%;margin-bottom:10px;background:#fff;border:1px solid #bfc9d8;color:var(--accent2)}button:disabled{opacity:.38}.small-note{font-size:12px;color:var(--muted);line-height:1.6;margin:13px 0 0}.hidden{display:none!important}
-.quiz-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin:3px 2px 10px}.top-home-btn{background:#fff;border:1px solid var(--line);color:#475467;min-height:42px;padding:0 14px;white-space:nowrap}.quiz-meta{display:flex;flex-direction:column;align-items:flex-end;gap:4px;min-width:0;flex:1}.progress-label{font-size:13px;font-weight:850;color:#344054;text-align:right}.progress-track{height:6px;background:#d9dee5;border-radius:999px;overflow:hidden;margin-bottom:14px}.progress-bar{height:100%;background:var(--accent);width:0;transition:width .18s ease}
-.scene{perspective:1200px;height:min(61vh,560px);min-height:430px}.flashcard{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .42s cubic-bezier(.2,.7,.2,1);cursor:default;-webkit-tap-highlight-color:transparent}.flashcard.flipped{transform:rotateY(180deg)}
-.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);display:flex;flex-direction:column;padding:18px 16px;overflow:auto}.back{transform:rotateY(180deg)}.face-label{font-size:12px;font-weight:850;color:var(--accent2);background:var(--soft);padding:6px 10px;border-radius:999px;align-self:flex-start}.prompt{text-align:center;font-size:19px;font-weight:800;margin:12px 0 8px}
-.map-wrap{position:relative;width:100%;aspect-ratio:2/1;margin:auto;overflow:hidden;border-radius:14px;touch-action:manipulation;cursor:zoom-in;background:#eef1f4}.map-wrap.zoomed{cursor:zoom-out}.map-stage{position:absolute;inset:0;transform-origin:0 0;will-change:transform;transition:transform .28s ease}.map-wrap img{display:block;width:100%;height:100%;object-fit:contain}.map-base{position:absolute;inset:0}.country-highlight{position:absolute;inset:0;pointer-events:none}.marker{position:absolute;width:clamp(22px,5.5vw,38px);height:clamp(22px,5.5vw,38px);border:4px solid var(--red);border-radius:50%;transform:translate(-50%,-50%);transform-origin:center;pointer-events:none;box-shadow:0 0 0 2px rgba(255,255,255,.75)}
-.answer-name{font-size:clamp(27px,8vw,42px);font-weight:850;line-height:1.45;text-align:center;margin:12px 0 14px}.answer-map{width:100%;max-width:500px;margin:auto}.tap-hint{font-size:12px;color:var(--muted);text-align:center;padding-top:8px}
-.nav{position:sticky;bottom:max(8px,env(safe-area-inset-bottom));z-index:5;padding-top:12px;background:linear-gradient(to bottom,rgba(231,234,238,0),var(--bg) 30%)}.nav-row{display:grid;grid-template-columns:1fr 1.45fr;gap:10px}
-.finish-panel h2{margin:0 0 8px;font-size:27px}.finish-panel p{margin:0;color:var(--muted);line-height:1.7}
-@media(max-width:560px){.app{padding:12px 11px calc(22px + env(safe-area-inset-bottom))}.grid{grid-template-columns:1fr}.scene{height:58vh;min-height:410px;max-height:590px}.face{padding:15px 12px}.prompt{font-size:17px}.marker{border-width:3px}}
-@media(max-height:700px) and (max-width:560px){.scene{height:52vh;min-height:350px}.prompt{margin:8px 0 4px}}
-@media(prefers-reduced-motion:reduce){.flashcard{transition:none}}
+:root{--bg:#f3f6fb;--card:#fff;--ink:#172033;--muted:#667085;--line:#d9e0ea;--accent:#2457d6;--accent2:#173d98;--soft:#edf3ff;--ocean:#eaf0f5;--land:#fbfcfd;--border:#87919d;--pink:#f6a0ad;--red:#d92d20;--shadow:0 12px 32px rgba(23,32,51,.10);--radius:22px}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;-webkit-text-size-adjust:100%}button,input,select{font:inherit}button{touch-action:manipulation}.app{max-width:760px;margin:0 auto;padding:16px 14px calc(28px + env(safe-area-inset-bottom))}header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:4px 2px 16px}h1{font-size:clamp(24px,6vw,33px);margin:0;line-height:1.15}.badge{font-size:12px;font-weight:800;background:var(--soft);color:var(--accent2);padding:8px 11px;border-radius:999px;white-space:nowrap}.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:17px;box-shadow:var(--shadow)}.lead{font-size:14px;line-height:1.7;color:var(--muted);margin:0 0 16px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.field.full{grid-column:1/-1}label{display:block;font-size:12px;font-weight:800;color:#475467;margin:0 0 7px}select,input{width:100%;height:48px;border:1px solid #cfd7e4;border-radius:12px;background:#fff;color:var(--ink);font-size:16px;padding:0 12px;outline:none}select:focus,input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(36,87,214,.12)}.actions{display:flex;gap:10px;margin-top:17px}button{border:0;border-radius:13px;min-height:50px;padding:0 16px;font-weight:800;cursor:pointer}.primary{background:var(--accent);color:#fff;flex:1}.primary:active{background:var(--accent2)}.secondary{background:#e9eef6;color:#344054}.flip-btn{width:100%;margin-bottom:10px;background:#fff;border:1px solid #bfc9d8;color:var(--accent2)}button:disabled{opacity:.38}.small-note{font-size:12px;color:var(--muted);line-height:1.6;margin:13px 0 0}.hidden{display:none!important}.quiz-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin:3px 2px 10px}.quiz-meta{display:flex;flex-direction:column;align-items:flex-end;gap:4px;min-width:0;flex:1}.progress-label{font-size:13px;font-weight:850;color:#344054;text-align:right}.top-home-btn{background:#fff;border:1px solid var(--line);color:#475467;min-height:42px;padding:0 14px;white-space:nowrap;flex:0 0 auto}.progress-track{height:6px;background:#e2e7ef;border-radius:999px;overflow:hidden;margin-bottom:14px}.progress-bar{height:100%;background:var(--accent);width:0;transition:width .18s ease}.scene{perspective:1200px;height:min(61vh,560px);min-height:410px}.card{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .42s cubic-bezier(.2,.7,.2,1)}.card.flipped{transform:rotateY(180deg)}.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);display:flex;flex-direction:column;padding:18px 16px;overflow:hidden}.back{transform:rotateY(180deg);background:#fbfcff}.face-label{font-size:12px;font-weight:850;color:var(--accent2);background:var(--soft);padding:6px 10px;border-radius:999px;align-self:flex-start}.question{font-size:20px;font-weight:800;line-height:1.5;text-align:center;margin:10px 0 8px}.map-shell{position:relative;flex:1;min-height:0;border-radius:14px;overflow:hidden;background:var(--ocean);border:1px solid #d9e0e7}.map-shell.clickable{cursor:zoom-in}.map-shell.clickable.zoomed{cursor:zoom-out}.map-shell svg{display:block;width:100%;height:100%;background:var(--ocean);touch-action:manipulation}.map-hint{text-align:center;font-size:12px;color:var(--muted);padding-top:8px}.answer-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}.answer-name{font-size:clamp(30px,8vw,46px);font-weight:900;line-height:1.4;text-align:center}.answer-sub{font-size:13px;color:var(--muted)}.nav{position:sticky;bottom:max(8px,env(safe-area-inset-bottom));z-index:5;padding-top:12px;background:linear-gradient(to bottom,rgba(243,246,251,0),var(--bg) 30%)}.nav-row{display:grid;grid-template-columns:1fr 1.45fr;gap:10px}.finish-panel h2{margin:0 0 8px;font-size:27px}.finish-panel p{margin:0;color:var(--muted);line-height:1.7}.loading{display:flex;align-items:center;justify-content:center;height:100%;font-weight:700;color:var(--muted);text-align:center;padding:20px}
+@media(max-width:560px){.app{padding:12px 11px calc(22px + env(safe-area-inset-bottom))}.grid{grid-template-columns:1fr}.field.full{grid-column:auto}.scene{height:59vh;min-height:390px}.face{padding:15px 12px}.question{font-size:18px}.nav-row{grid-template-columns:1fr 1.45fr}}
+@media(max-height:700px) and (max-width:560px){.scene{height:54vh;min-height:340px}.question{margin:7px 0 5px}}
+@media(prefers-reduced-motion:reduce){.card{transition:none}}
 </style>
 </head>
 <body>
 <div class="app">
-<header><h1>暗記大会 世界地図編</h1><div id="totalBadge" class="badge">読込中</div></header>
+<header><h1>暗記大会・世界地図編</h1><div id="totalBadge" class="badge">読込中</div></header>
 <section id="setup" class="panel">
-<p class="lead">世界地図でピンク色に塗られ、赤い丸で示された国を答えます。地図をタップすると拡大表示と全体表示を切り替えられます。</p>
+<p class="lead">世界地図で示された国の名前を答えます。全体表示では対象国をピンクで塗り、赤いリングで位置を示します。地図をタップすると高精細な拡大表示に切り替わります。</p>
 <div class="grid">
  <div class="field"><label for="count">カード枚数</label><select id="count"><option value="5">5枚</option><option value="10">10枚</option><option value="20">20枚</option><option value="50">50枚</option><option value="all" selected>全部</option></select></div>
  <div class="field"><label for="order">出題順</label><select id="order"><option value="random" selected>ランダム</option><option value="sequential">順番</option></select></div>
+ <div class="field full"><label for="keyword">国名検索（任意）</label><input id="keyword" type="search" placeholder="例：日本、フランス" autocomplete="off"></div>
 </div>
 <div class="actions"><button id="startBtn" class="primary" type="button" disabled>カードを開始</button></div>
-<p id="status" class="small-note">国データを読み込んでいます。</p>
+<p id="status" class="small-note">高精細地図データを読み込んでいます。</p>
 </section>
 <section id="quiz" class="hidden">
  <div class="quiz-top"><button id="homeBtn" class="top-home-btn" type="button">← ホーム</button><div class="quiz-meta"><div id="progressLabel" class="progress-label"></div></div></div>
  <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
- <div class="scene" aria-live="polite">
-  <div id="card" class="flashcard">
-   <div class="face front"><div class="face-label">問題</div><div class="prompt">国名を答えなさい</div><div id="frontMap" class="map-wrap" role="button" tabindex="0" aria-label="地図をタップして拡大"><div class="map-stage"><img class="map-base" src="./world_map.svg" alt="国境線のある世界地図"><img id="frontHighlight" class="country-highlight" alt=""><span id="frontMarker" class="marker"></span></div></div><div class="tap-hint">地図をタップ：拡大表示 ⇄ 全体表示</div></div>
-   <div class="face back"><div class="face-label">答え</div><div id="answerName" class="answer-name"></div><div id="backMap" class="map-wrap answer-map" role="button" tabindex="0" aria-label="地図をタップして拡大"><div class="map-stage"><img class="map-base" src="./world_map.svg" alt="国境線のある世界地図"><img id="backHighlight" class="country-highlight" alt=""><span id="backMarker" class="marker"></span></div></div><div class="tap-hint">地図をタップ：拡大表示 ⇄ 全体表示</div></div>
-  </div>
+ <div class="scene">
+   <div id="card" class="card">
+     <div class="face front"><div class="face-label">問題</div><div class="question">国名を答えなさい</div><div id="mapShell" class="map-shell clickable" role="button" tabindex="0" aria-label="地図をタップして拡大表示"><svg id="mapSvg" viewBox="0 0 1000 520" preserveAspectRatio="xMidYMid meet"><text x="500" y="260" text-anchor="middle" class="loading">地図を読み込み中</text></svg></div><div id="mapHint" class="map-hint">地図をタップ：拡大表示 ⇄ 全体表示</div></div>
+     <div class="face back"><div class="face-label">答え</div><div class="answer-body"><div id="answerName" class="answer-name"></div><div class="answer-sub">「問題に戻る」で地図を確認できます</div></div></div>
+   </div>
  </div>
  <div class="nav"><button id="flipBtn" class="flip-btn" type="button">答えを見る</button><div class="nav-row"><button id="prevBtn" class="secondary" type="button">前へ</button><button id="nextBtn" class="primary" type="button">次へ</button></div></div>
 </section>
-<section id="finish" class="panel finish-panel hidden"><h2>終了</h2><p id="finishText"></p><div class="actions"><button id="againBtn" class="secondary" type="button">もう一度</button><button id="settingsBtn" class="primary" type="button">ホームへ</button></div></section>
+<section id="finish" class="panel finish-panel hidden"><h2>終了</h2><p id="finishText"></p><div class="actions"><button id="againBtn" class="secondary" type="button">同じ条件でもう一度</button><button id="settingsBtn" class="primary" type="button">設定に戻る</button></div></section>
 </div>
 <script>
-let DATA=[];const $=id=>document.getElementById(id);const el={setup:$('setup'),quiz:$('quiz'),finish:$('finish'),count:$('count'),order:$('order'),start:$('startBtn'),card:$('card'),frontMarker:$('frontMarker'),backMarker:$('backMarker'),frontHighlight:$('frontHighlight'),backHighlight:$('backHighlight'),frontMap:$('frontMap'),backMap:$('backMap'),answer:$('answerName'),progress:$('progressLabel'),bar:$('progressBar'),flip:$('flipBtn'),prev:$('prevBtn'),next:$('nextBtn'),home:$('homeBtn'),again:$('againBtn'),settings:$('settingsBtn'),finishText:$('finishText'),badge:$('totalBadge'),status:$('status')};let session=null;
-async function loadData(){try{const r=await fetch('./countries.json',{cache:'no-store'});if(!r.ok)throw new Error(`HTTP ${r.status}`);const d=await r.json();DATA=d.countries||[];if(!DATA.length)throw new Error('empty');el.badge.textContent=`全 ${DATA.length} か国`;el.status.textContent='国データを読み込みました。';el.start.disabled=false}catch(e){console.error(e);el.badge.textContent='読込エラー';el.status.textContent='countries.jsonを読み込めませんでした。';}}
+const MAP_URLS={
+  world110:'https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json',
+  world50:'https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json',
+  world10:'https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-10m.json'
+};
+const $=id=>document.getElementById(id);
+const el={setup:$('setup'),quiz:$('quiz'),finish:$('finish'),count:$('count'),order:$('order'),keyword:$('keyword'),start:$('startBtn'),card:$('card'),mapShell:$('mapShell'),mapSvg:$('mapSvg'),mapHint:$('mapHint'),answer:$('answerName'),progress:$('progressLabel'),bar:$('progressBar'),flip:$('flipBtn'),prev:$('prevBtn'),next:$('nextBtn'),home:$('homeBtn'),again:$('againBtn'),settings:$('settingsBtn'),finishText:$('finishText'),badge:$('totalBadge'),status:$('status')};
+let COUNTRIES=[], session=null, mapData=null, zoomed=false;
+function normId(id){return String(id).padStart(3,'0')}
+async function loadAll(){
+  try{
+    const [countryPayload,t110,t50,t10]=await Promise.all([
+      fetch('./countries.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('countries.json');return r.json()}),
+      fetch(MAP_URLS.world110).then(r=>{if(!r.ok)throw new Error('110m');return r.json()}),
+      fetch(MAP_URLS.world50).then(r=>{if(!r.ok)throw new Error('50m');return r.json()}),
+      fetch(MAP_URLS.world10).then(r=>{if(!r.ok)throw new Error('10m');return r.json()})
+    ]);
+    COUNTRIES=countryPayload.countries;
+    const fc110=topojson.feature(t110,t110.objects.countries).features;
+    const fc50=topojson.feature(t50,t50.objects.countries).features;
+    const fc10=topojson.feature(t10,t10.objects.countries).features;
+    mapData={
+      t110,t50,t10,
+      f110:new Map(fc110.map(f=>[normId(f.id),f])),
+      f50:new Map(fc50.map(f=>[normId(f.id),f])),
+      f10:new Map(fc10.map(f=>[normId(f.id),f])),
+      fc110,fc50,fc10,
+      mesh110:topojson.mesh(t110,t110.objects.countries,(a,b)=>a!==b),
+      mesh50:topojson.mesh(t50,t50.objects.countries,(a,b)=>a!==b)
+    };
+    const missing=COUNTRIES.filter(c=>!mapData.f10.has(c.numeric));
+    el.badge.textContent=`全 ${COUNTRIES.length} か国`;
+    el.status.textContent=missing.length?`地図を読み込みました。高精細ポリゴン未収録: ${missing.length}か国（位置表示で補完）`:`高精細地図を読み込みました（${COUNTRIES.length}か国）`;
+    el.start.disabled=false;
+  }catch(err){console.error(err);el.badge.textContent='読込エラー';el.status.textContent='地図データを読み込めませんでした。通信状態を確認してページを再読み込みしてください。';}
+}
+function pool(){const k=el.keyword.value.trim().toLowerCase();return COUNTRIES.filter(c=>!k||(c.name+' '+c.sort_name).toLowerCase().includes(k))}
 function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
-function selected(){let a=DATA.slice();if(el.order.value==='random')a=shuffle(a);const n=el.count.value==='all'?a.length:Math.min(+el.count.value,a.length);return a.slice(0,n)}
-function start(){const cards=selected();if(!cards.length)return;session={cards,index:0};el.setup.classList.add('hidden');el.finish.classList.add('hidden');el.quiz.classList.remove('hidden');render();scrollTopSmooth()}
-function scrollTopSmooth(){window.scrollTo({top:0,behavior:'smooth'})}function isFlipped(){return el.card.classList.contains('flipped')}function setFlip(v){el.card.classList.toggle('flipped',v);el.flip.textContent=v?'問題に戻る':'答えを見る'}function toggleFlip(){setFlip(!isFlipped())}
-function placeMarker(node,x,y){node.style.left=`${x}%`;node.style.top=`${y}%`}
-function render(){const x=session.cards[session.index],i=session.index,n=session.cards.length;setFlip(false);resetMapView(el.frontMap);resetMapView(el.backMap);el.answer.textContent=x.name;const hi=`./highlights/${x.id}.svg`;el.frontHighlight.src=hi;el.backHighlight.src=hi;placeMarker(el.frontMarker,x.x,x.y);placeMarker(el.backMarker,x.x,x.y);setMapCountry(el.frontMap,x);setMapCountry(el.backMap,x);el.progress.textContent=`${i+1} / ${n} 枚`;el.bar.style.width=`${(i+1)/n*100}%`;el.prev.disabled=i===0;el.next.textContent=i===n-1?'終了':'次へ'}
-function prev(){if(session.index>0){session.index--;render();scrollTopSmooth()}}function next(){if(session.index<session.cards.length-1){session.index++;render();scrollTopSmooth()}else finish()}function home(){session=null;setFlip(false);el.quiz.classList.add('hidden');el.finish.classList.add('hidden');el.setup.classList.remove('hidden');scrollTopSmooth()}function finish(){el.quiz.classList.add('hidden');el.finish.classList.remove('hidden');el.finishText.textContent=`${session.cards.length}枚のカードを確認しました。`;scrollTopSmooth()}function again(){start()}function settings(){home()}
-const mapStates=new WeakMap();
-function getMapState(map){if(!mapStates.has(map))mapStates.set(map,{zoomed:false,country:null});return mapStates.get(map)}
-function setMapCountry(map,country){const st=getMapState(map);st.country=country;st.zoomed=false;map.classList.remove('zoomed');applyMapView(map)}
-function applyMapView(map){const st=getMapState(map),stage=map.querySelector('.map-stage'),marker=map.querySelector('.marker');if(!st.country||!st.zoomed){stage.style.transform='translate(0px,0px) scale(1)';marker.style.transform='translate(-50%,-50%) scale(1)';map.classList.remove('zoomed');return}const scale=Number(st.country.zoom||4),w=map.clientWidth,h=map.clientHeight,x=st.country.x/100*w,y=st.country.y/100*h;let tx=w/2-x*scale,ty=h/2-y*scale;tx=Math.max(w*(1-scale),Math.min(0,tx));ty=Math.max(h*(1-scale),Math.min(0,ty));stage.style.transform=`translate(${tx}px,${ty}px) scale(${scale})`;marker.style.transform=`translate(-50%,-50%) scale(${1/scale})`;map.classList.add('zoomed')}
-function resetMapView(map){const st=getMapState(map);st.zoomed=false;map.classList.remove('zoomed');applyMapView(map)}
-function toggleMapView(map){const st=getMapState(map);if(!st.country)return;st.zoomed=!st.zoomed;applyMapView(map)}
-function enableTapZoom(map){map.addEventListener('click',e=>{e.stopPropagation();toggleMapView(map)});map.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleMapView(map)}});window.addEventListener('resize',()=>{if(getMapState(map).zoomed)applyMapView(map)})}
-document.querySelectorAll('.map-wrap').forEach(enableTapZoom);
-el.start.addEventListener('click',start);el.flip.addEventListener('click',toggleFlip);el.prev.addEventListener('click',prev);el.next.addEventListener('click',next);el.home.addEventListener('click',home);el.again.addEventListener('click',again);el.settings.addEventListener('click',settings);loadData();
+function selected(){let a=pool();if(el.order.value==='random')a=shuffle(a);const n=el.count.value==='all'?a.length:Math.min(+el.count.value,a.length);return a.slice(0,n)}
+function start(){const cards=selected();if(!cards.length){alert('条件に一致する国がありません。');return}session={cards,index:0};el.setup.classList.add('hidden');el.finish.classList.add('hidden');el.quiz.classList.remove('hidden');render();scrollTop()}
+function scrollTop(){window.scrollTo({top:0,behavior:'smooth'})}
+function setFlip(v){el.card.classList.toggle('flipped',v);el.flip.textContent=v?'問題に戻る':'答えを見る'}
+function toggleFlip(){setFlip(!el.card.classList.contains('flipped'))}
+function current(){return session.cards[session.index]}
+function svgClear(){while(el.mapSvg.firstChild)el.mapSvg.removeChild(el.mapSvg.firstChild)}
+function svgPath(d,cls,fill,stroke,width){const p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d',d||'');if(fill)p.setAttribute('fill',fill);else p.setAttribute('fill','none');if(stroke)p.setAttribute('stroke',stroke);if(width)p.setAttribute('stroke-width',String(width));p.setAttribute('stroke-linejoin','round');p.setAttribute('stroke-linecap','round');p.setAttribute('vector-effect','non-scaling-stroke');if(cls)p.setAttribute('class',cls);el.mapSvg.appendChild(p);return p}
+function focusFeature(feature,c){
+  if(!feature)return null;
+  if(feature.geometry.type!=='MultiPolygon')return feature;
+  const pt=[c.lon,c.lat];
+  const polys=feature.geometry.coordinates.map(coords=>({type:'Feature',properties:feature.properties,geometry:{type:'Polygon',coordinates:coords}}));
+  const containing=polys.find(p=>d3.geoContains(p,pt));
+  if(containing)return containing;
+  // For archipelagos, preserve the whole geometry unless it spans a very large angular distance.
+  const archipelago=new Set(['ID','PH','JP','NZ','FJ','SB','VU','KI','FM','MH','PW','MV','CV','KM','SC','MU','WS','TO','TV','BS','AG','KN','LC','VC','GD']);
+  if(archipelago.has(c.id))return feature;
+  let best=polys[0],bestD=Infinity;
+  for(const p of polys){const cen=d3.geoCentroid(p);const dist=d3.geoDistance(cen,pt);if(dist<bestD){bestD=dist;best=p}}
+  return best;
+}
+function renderFull(c){
+  zoomed=false;el.mapShell.classList.remove('zoomed');el.mapHint.textContent='地図をタップ：拡大表示';svgClear();
+  const projection=d3.geoNaturalEarth1().fitExtent([[16,14],[984,506]],{type:'Sphere'}),path=d3.geoPath(projection);
+  svgPath(path({type:'Sphere'}),'ocean',getComputedStyle(document.documentElement).getPropertyValue('--ocean').trim());
+  // Countries at 110m are enough for the overview; the ring provides precise location guidance.
+  for(const f of mapData.fc110){const id=normId(f.id),target=id===c.numeric;svgPath(path(f),target?'target':'country',target?'#f6a0ad':'#fbfcfd',target?'#d92d20':'none',target?0.9:0)}
+  svgPath(path(mapData.mesh110),'borders',null,'#87919d',0.55);
+  const pt=projection([c.lon,c.lat]);
+  if(pt){const ring=document.createElementNS('http://www.w3.org/2000/svg','circle');ring.setAttribute('cx',pt[0]);ring.setAttribute('cy',pt[1]);ring.setAttribute('r','14');ring.setAttribute('fill','none');ring.setAttribute('stroke','#d92d20');ring.setAttribute('stroke-width','4');ring.setAttribute('vector-effect','non-scaling-stroke');el.mapSvg.appendChild(ring)}
+}
+function renderZoom(c){
+  zoomed=true;el.mapShell.classList.add('zoomed');el.mapHint.textContent='地図をタップ：世界全体に戻る';svgClear();
+  const target10=mapData.f10.get(c.numeric),focus=focusFeature(target10,c);
+  if(!focus){renderFallbackZoom(c);return}
+  const projection=d3.geoMercator();
+  projection.fitExtent([[105,58],[895,462]],focus);
+  let s=projection.scale()*0.66;
+  s=Math.max(420,Math.min(12000,s));
+  const center=d3.geoCentroid(focus);
+  projection.center(center).translate([500,260]).scale(s).clipExtent([[0,0],[1000,520]]);
+  const path=d3.geoPath(projection);
+  // 50m surrounding geography for speed and a clean regional context.
+  for(const f of mapData.fc50){const id=normId(f.id);if(id===c.numeric)continue;const d=path(f);if(d)svgPath(d,'country','#fbfcfd','none',0)}
+  svgPath(path(mapData.mesh50),'borders',null,'#7d8793',0.9);
+  // Target alone is rendered from 1:10m data for crisp coastline and accurate fill.
+  const td=path(target10);
+  if(td)svgPath(td,'target','#f6a0ad','#d92d20',2.1);
+  // Intentionally no red ring in zoom mode.
+}
+function renderFallbackZoom(c){
+  const projection=d3.geoMercator().center([c.lon,c.lat]).translate([500,260]).scale(3500).clipExtent([[0,0],[1000,520]]),path=d3.geoPath(projection);
+  for(const f of mapData.fc50){const d=path(f);if(d)svgPath(d,'country','#fbfcfd','none',0)}
+  svgPath(path(mapData.mesh50),'borders',null,'#7d8793',0.9);
+  const pt=projection([c.lon,c.lat]);if(pt){const dot=document.createElementNS('http://www.w3.org/2000/svg','circle');dot.setAttribute('cx',pt[0]);dot.setAttribute('cy',pt[1]);dot.setAttribute('r','8');dot.setAttribute('fill','#f6a0ad');dot.setAttribute('stroke','#d92d20');dot.setAttribute('stroke-width','2');el.mapSvg.appendChild(dot)}
+}
+function toggleMap(){if(!session)return;zoomed?renderFull(current()):renderZoom(current())}
+function render(){const c=current(),i=session.index,n=session.cards.length;setFlip(false);el.answer.textContent=c.name;el.progress.textContent=`${i+1} / ${n} 枚`;el.bar.style.width=`${(i+1)/n*100}%`;el.prev.disabled=i===0;el.next.textContent=i===n-1?'終了':'次へ';renderFull(c)}
+function prev(){if(session.index>0){session.index--;render();scrollTop()}}
+function next(){if(session.index<session.cards.length-1){session.index++;render();scrollTop()}else finish()}
+function home(){session=null;setFlip(false);el.quiz.classList.add('hidden');el.finish.classList.add('hidden');el.setup.classList.remove('hidden');scrollTop()}
+function finish(){el.quiz.classList.add('hidden');el.finish.classList.remove('hidden');el.finishText.textContent=`${session.cards.length}枚のカードを確認しました。`;scrollTop()}
+function again(){if(!session)return;const cards=selected();if(!cards.length)return;session={cards,index:0};el.finish.classList.add('hidden');el.quiz.classList.remove('hidden');render();scrollTop()}
+function settings(){el.finish.classList.add('hidden');el.quiz.classList.add('hidden');el.setup.classList.remove('hidden');scrollTop()}
+el.start.addEventListener('click',start);el.flip.addEventListener('click',toggleFlip);el.prev.addEventListener('click',prev);el.next.addEventListener('click',next);el.home.addEventListener('click',home);el.again.addEventListener('click',again);el.settings.addEventListener('click',settings);el.mapShell.addEventListener('click',toggleMap);el.mapShell.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleMap()}});
+loadAll();
 </script>
 <script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(console.warn))}</script>
 </body></html>

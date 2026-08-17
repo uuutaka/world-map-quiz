@@ -1,13 +1,13 @@
 {
-  "name": "暗記大会 世界地図編",
-  "short_name": "世界地図",
-  "description": "世界地図上の赤い丸から国名を答える暗記カードアプリ",
+  "name": "暗記大会・世界地図編",
+  "short_name": "地図暗記",
+  "description": "世界地図で示された国の名前を覚える暗記カードアプリ",
   "lang": "ja",
   "id": "./",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#e7eaee",
+  "background_color": "#f3f6fb",
   "theme_color": "#2457d6",
   "orientation": "portrait-primary",
   "icons": [

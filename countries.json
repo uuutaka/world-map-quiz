@@ -1,1959 +1,1572 @@
 {
   "meta": {
     "total": 195,
-    "map": "vector-svg-tap-zoom",
-    "marker": "red ring at country geographic center"
+    "map_source": "Natural Earth via world-atlas",
+    "full_scale": "1:110m",
+    "regional_scale": "1:50m",
+    "target_scale": "1:10m",
+    "interaction": "tap toggles overview / regional zoom; answer only by button"
   },
   "countries": [
     {
       "id": "AF",
+      "numeric": "004",
       "name": "アフガニスタン",
       "sort_name": "Afghanistan",
       "lat": 33.0,
-      "lon": 65.0,
-      "x": 67.1542,
-      "y": 29.5395,
-      "zoom": 3.0
+      "lon": 65.0
     },
     {
       "id": "AL",
+      "numeric": "008",
       "name": "アルバニア",
       "sort_name": "Albania",
       "lat": 41.0,
-      "lon": 20.0,
-      "x": 55.0935,
-      "y": 24.5945,
-      "zoom": 5.0
+      "lon": 20.0
     },
     {
       "id": "DZ",
+      "numeric": "012",
       "name": "アルジェリア",
       "sort_name": "Algeria",
       "lat": 28.0,
-      "lon": 3.0,
-      "x": 50.8048,
-      "y": 32.6401,
-      "zoom": 3.0
+      "lon": 3.0
     },
     {
       "id": "AD",
+      "numeric": "020",
       "name": "アンドラ",
       "sort_name": "Andorra",
       "lat": 42.5063,
-      "lon": 1.5218,
-      "x": 50.3844,
-      "y": 23.6696,
-      "zoom": 7.0
+      "lon": 1.5218
     },
     {
       "id": "AO",
+      "numeric": "024",
       "name": "アンゴラ",
       "sort_name": "Angola",
       "lat": -12.5,
-      "lon": 18.5,
-      "x": 55.1031,
-      "y": 57.75,
-      "zoom": 3.0
+      "lon": 18.5
     },
     {
       "id": "AG",
+      "numeric": "028",
       "name": "アンティグア・バーブーダ",
       "sort_name": "Antigua and Barbuda",
       "lat": 17.05,
-      "lon": -61.8,
-      "x": 33.0564,
-      "y": 39.429,
-      "zoom": 7.0
+      "lon": -61.8
     },
     {
       "id": "AR",
+      "numeric": "032",
       "name": "アルゼンチン",
       "sort_name": "Argentina",
       "lat": -34.0,
-      "lon": -64.0,
-      "x": 33.174,
-      "y": 71.0804,
-      "zoom": 3.0
+      "lon": -64.0
     },
     {
       "id": "AM",
+      "numeric": "051",
       "name": "アルメニア",
       "sort_name": "Armenia",
       "lat": 40.0,
-      "lon": 45.0,
-      "x": 61.52,
-      "y": 25.21,
-      "zoom": 5.0
+      "lon": 45.0
     },
     {
       "id": "AU",
+      "numeric": "036",
       "name": "オーストラリア",
       "sort_name": "Australia",
       "lat": -27.0,
-      "lon": 133.0,
-      "x": 85.7748,
-      "y": 66.7399,
-      "zoom": 3.0
+      "lon": 133.0
     },
     {
       "id": "AT",
+      "numeric": "040",
       "name": "オーストリア",
       "sort_name": "Austria",
       "lat": 47.33333,
-      "lon": 13.33333,
-      "x": 53.272,
-      "y": 20.7272,
-      "zoom": 3.0
+      "lon": 13.33333
     },
     {
       "id": "AZ",
+      "numeric": "031",
       "name": "アゼルバイジャン",
       "sort_name": "Azerbaijan",
       "lat": 40.5,
-      "lon": 47.5,
-      "x": 62.1288,
-      "y": 24.9021,
-      "zoom": 4.0
+      "lon": 47.5
     },
     {
       "id": "BS",
+      "numeric": "044",
       "name": "バハマ",
       "sort_name": "Bahamas",
       "lat": 24.25,
-      "lon": -76.0,
-      "x": 29.4259,
-      "y": 34.965,
-      "zoom": 4.0
+      "lon": -76.0
     },
     {
       "id": "BH",
+      "numeric": "048",
       "name": "バーレーン",
       "sort_name": "Bahrain",
       "lat": 26.0,
-      "lon": 50.55,
-      "x": 63.6311,
-      "y": 33.88,
-      "zoom": 7.0
+      "lon": 50.55
     },
     {
       "id": "BD",
+      "numeric": "050",
       "name": "バングラデシュ",
       "sort_name": "Bangladesh",
       "lat": 24.0,
-      "lon": 90.0,
-      "x": 74.3766,
-      "y": 35.12,
-      "zoom": 3.0
+      "lon": 90.0
     },
     {
       "id": "BB",
+      "numeric": "052",
       "name": "バルバドス",
       "sort_name": "Barbados",
       "lat": 13.16667,
-      "lon": -59.53333,
-      "x": 33.5905,
-      "y": 41.8367,
-      "zoom": 7.0
+      "lon": -59.53333
     },
     {
       "id": "BY",
+      "numeric": "112",
       "name": "ベラルーシ",
       "sort_name": "Belarus",
       "lat": 53.0,
-      "lon": 28.0,
-      "x": 56.6009,
-      "y": 17.3325,
-      "zoom": 3.0
+      "lon": 28.0
     },
     {
       "id": "BE",
+      "numeric": "056",
       "name": "ベルギー",
       "sort_name": "Belgium",
       "lat": 50.83333,
-      "lon": 4.0,
-      "x": 50.9586,
-      "y": 18.6211,
-      "zoom": 5.0
+      "lon": 4.0
     },
     {
       "id": "BZ",
+      "numeric": "084",
       "name": "ベリーズ",
       "sort_name": "Belize",
       "lat": 17.25,
-      "lon": -88.75,
-      "x": 25.6752,
-      "y": 39.305,
-      "zoom": 5.0
+      "lon": -88.75
     },
     {
       "id": "BJ",
+      "numeric": "204",
       "name": "ベナン",
       "sort_name": "Benin",
       "lat": 9.5,
-      "lon": 2.25,
-      "x": 50.6224,
-      "y": 44.11,
-      "zoom": 3.0
+      "lon": 2.25
     },
     {
       "id": "BT",
+      "numeric": "064",
       "name": "ブータン",
       "sort_name": "Bhutan",
       "lat": 27.5,
-      "lon": 90.5,
-      "x": 74.3109,
-      "y": 32.9501,
-      "zoom": 5.0
+      "lon": 90.5
     },
     {
       "id": "BO",
+      "numeric": "068",
       "name": "ボリビア",
       "sort_name": "Bolivia, Plurinational State of",
       "lat": -17.0,
-      "lon": -65.0,
-      "x": 32.1777,
-      "y": 60.54,
-      "zoom": 3.0
+      "lon": -65.0
     },
     {
       "id": "BA",
+      "numeric": "070",
       "name": "ボスニア・ヘルツェゴビナ",
       "sort_name": "Bosnia and Herzegovina",
       "lat": 44.0,
-      "lon": 18.0,
-      "x": 54.5076,
-      "y": 22.7553,
-      "zoom": 3.0
+      "lon": 18.0
     },
     {
       "id": "BW",
+      "numeric": "072",
       "name": "ボツワナ",
       "sort_name": "Botswana",
       "lat": -22.0,
-      "lon": 24.0,
-      "x": 56.5252,
-      "y": 63.64,
-      "zoom": 3.0
+      "lon": 24.0
     },
     {
       "id": "BR",
+      "numeric": "076",
       "name": "ブラジル",
       "sort_name": "Brazil",
       "lat": -10.0,
-      "lon": -55.0,
-      "x": 34.7925,
-      "y": 56.2,
-      "zoom": 3.0
+      "lon": -55.0
     },
     {
       "id": "BN",
+      "numeric": "096",
       "name": "ブルネイ",
       "sort_name": "Brunei Darussalam",
       "lat": 4.5,
-      "lon": 114.66667,
-      "x": 81.8147,
-      "y": 47.21,
-      "zoom": 7.0
+      "lon": 114.66667
     },
     {
       "id": "BG",
+      "numeric": "100",
       "name": "ブルガリア",
       "sort_name": "Bulgaria",
       "lat": 43.0,
-      "lon": 25.0,
-      "x": 56.2969,
-      "y": 23.3671,
-      "zoom": 3.0
+      "lon": 25.0
     },
     {
       "id": "BF",
+      "numeric": "854",
       "name": "ブルキナファソ",
       "sort_name": "Burkina Faso",
       "lat": 13.0,
-      "lon": -2.0,
-      "x": 49.4486,
-      "y": 41.94,
-      "zoom": 3.0
+      "lon": -2.0
     },
     {
       "id": "BI",
+      "numeric": "108",
       "name": "ブルンジ",
       "sort_name": "Burundi",
       "lat": -3.5,
-      "lon": 30.0,
-      "x": 58.3271,
-      "y": 52.17,
-      "zoom": 5.0
+      "lon": 30.0
     },
     {
       "id": "CV",
+      "numeric": "132",
       "name": "カーボベルデ",
       "sort_name": "Cabo Verde",
       "lat": 16.0,
-      "lon": -24.0,
-      "x": 43.4094,
-      "y": 40.08,
-      "zoom": 7.0
+      "lon": -24.0
     },
     {
       "id": "KH",
+      "numeric": "116",
       "name": "カンボジア",
       "sort_name": "Cambodia",
       "lat": 13.0,
-      "lon": 105.0,
-      "x": 78.9472,
-      "y": 41.94,
-      "zoom": 3.0
+      "lon": 105.0
     },
     {
       "id": "CM",
+      "numeric": "120",
       "name": "カメルーン",
       "sort_name": "Cameroon",
       "lat": 6.0,
-      "lon": 12.0,
-      "x": 53.327,
-      "y": 46.28,
-      "zoom": 3.0
+      "lon": 12.0
     },
     {
       "id": "CA",
+      "numeric": "124",
       "name": "カナダ",
       "sort_name": "Canada",
       "lat": 60.0,
-      "lon": -95.0,
-      "x": 28.9258,
-      "y": 13.27,
-      "zoom": 3.0
+      "lon": -95.0
     },
     {
       "id": "CF",
+      "numeric": "140",
       "name": "中央アフリカ",
       "sort_name": "Central African Republic",
       "lat": 7.0,
-      "lon": 21.0,
-      "x": 55.8189,
-      "y": 45.66,
-      "zoom": 3.0
+      "lon": 21.0
     },
     {
       "id": "TD",
+      "numeric": "148",
       "name": "チャド",
       "sort_name": "Chad",
       "lat": 15.0,
-      "lon": 19.0,
-      "x": 55.225,
-      "y": 40.7,
-      "zoom": 3.0
+      "lon": 19.0
     },
     {
       "id": "CL",
+      "numeric": "152",
       "name": "チリ",
       "sort_name": "Chile",
       "lat": -30.0,
-      "lon": -71.0,
-      "x": 31.0667,
-      "y": 68.6,
-      "zoom": 3.0
+      "lon": -71.0
     },
     {
       "id": "CN",
+      "numeric": "156",
       "name": "中国",
       "sort_name": "China",
       "lat": 35.0,
-      "lon": 105.0,
-      "x": 77.4954,
-      "y": 28.3,
-      "zoom": 3.0
+      "lon": 105.0
     },
     {
       "id": "CO",
+      "numeric": "170",
       "name": "コロンビア",
       "sort_name": "Colombia",
       "lat": 4.0,
-      "lon": -72.0,
-      "x": 30.0189,
-      "y": 47.52,
-      "zoom": 3.0
+      "lon": -72.0
     },
     {
       "id": "KM",
+      "numeric": "174",
       "name": "コモロ",
       "sort_name": "Comoros",
       "lat": -12.16667,
-      "lon": 44.25,
-      "x": 62.2103,
-      "y": 57.5433,
-      "zoom": 7.0
+      "lon": 44.25
     },
     {
       "id": "CG",
+      "numeric": "178",
       "name": "コンゴ共和国",
       "sort_name": "Congo",
       "lat": -1.0,
-      "lon": 15.0,
-      "x": 54.1664,
-      "y": 50.62,
-      "zoom": 3.0
+      "lon": 15.0
     },
     {
       "id": "CD",
+      "numeric": "180",
       "name": "コンゴ民主共和国",
       "sort_name": "Congo, The Democratic Republic of the",
       "lat": 0.0,
-      "lon": 25.0,
-      "x": 56.9444,
-      "y": 50.0,
-      "zoom": 3.0
+      "lon": 25.0
     },
     {
       "id": "CR",
+      "numeric": "188",
       "name": "コスタリカ",
       "sort_name": "Costa Rica",
       "lat": 10.0,
-      "lon": -84.0,
-      "x": 26.774,
-      "y": 43.8,
-      "zoom": 5.0
+      "lon": -84.0
     },
     {
       "id": "HR",
+      "numeric": "191",
       "name": "クロアチア",
       "sort_name": "Croatia",
       "lat": 45.16667,
-      "lon": 15.5,
-      "x": 53.8548,
-      "y": 22.0434,
-      "zoom": 3.0
+      "lon": 15.5
     },
     {
       "id": "CU",
+      "numeric": "192",
       "name": "キューバ",
       "sort_name": "Cuba",
       "lat": 21.5,
-      "lon": -80.0,
-      "x": 28.2298,
-      "y": 36.67,
-      "zoom": 3.0
+      "lon": -80.0
     },
     {
       "id": "CY",
+      "numeric": "196",
       "name": "キプロス",
       "sort_name": "Cyprus",
       "lat": 35.0,
-      "lon": 33.0,
-      "x": 58.6414,
-      "y": 28.3,
-      "zoom": 7.0
+      "lon": 33.0
     },
     {
       "id": "CZ",
+      "numeric": "203",
       "name": "チェコ",
       "sort_name": "Czechia",
       "lat": 49.75,
-      "lon": 15.5,
-      "x": 53.7433,
-      "y": 19.27,
-      "zoom": 3.0
+      "lon": 15.5
     },
     {
       "id": "CI",
+      "numeric": "384",
       "name": "コートジボワール",
       "sort_name": "Côte d'Ivoire",
       "lat": 8.0,
-      "lon": -5.0,
-      "x": 48.6154,
-      "y": 45.04,
-      "zoom": 3.0
+      "lon": -5.0
     },
     {
       "id": "DK",
+      "numeric": "208",
       "name": "デンマーク",
       "sort_name": "Denmark",
       "lat": 56.0,
-      "lon": 10.0,
-      "x": 52.2999,
-      "y": 15.571,
-      "zoom": 4.0
+      "lon": 10.0
     },
     {
       "id": "DJ",
+      "numeric": "262",
       "name": "ジブチ",
       "sort_name": "Djibouti",
       "lat": 11.5,
-      "lon": 43.0,
-      "x": 61.8734,
-      "y": 42.87,
-      "zoom": 5.0
+      "lon": 43.0
     },
     {
       "id": "DM",
+      "numeric": "212",
       "name": "ドミニカ国",
       "sort_name": "Dominica",
       "lat": 15.41667,
-      "lon": -61.33333,
-      "x": 33.1431,
-      "y": 40.4417,
-      "zoom": 7.0
+      "lon": -61.33333
     },
     {
       "id": "DO",
+      "numeric": "214",
       "name": "ドミニカ共和国",
       "sort_name": "Dominican Republic",
       "lat": 19.0,
-      "lon": -70.66667,
-      "x": 30.6871,
-      "y": 38.22,
-      "zoom": 4.0
+      "lon": -70.66667
     },
     {
       "id": "EC",
+      "numeric": "218",
       "name": "エクアドル",
       "sort_name": "Ecuador",
       "lat": -2.0,
-      "lon": -77.5,
-      "x": 28.4778,
-      "y": 51.24,
-      "zoom": 3.0
+      "lon": -77.5
     },
     {
       "id": "EG",
+      "numeric": "818",
       "name": "エジプト",
       "sort_name": "Egypt",
       "lat": 27.0,
-      "lon": 30.0,
-      "x": 58.0695,
-      "y": 33.2601,
-      "zoom": 3.0
+      "lon": 30.0
     },
     {
       "id": "SV",
+      "numeric": "222",
       "name": "エルサルバドル",
       "sort_name": "El Salvador",
       "lat": 13.83333,
-      "lon": -88.91667,
-      "x": 25.5109,
-      "y": 41.4233,
-      "zoom": 5.0
+      "lon": -88.91667
     },
     {
       "id": "GQ",
+      "numeric": "226",
       "name": "赤道ギニア",
       "sort_name": "Equatorial Guinea",
       "lat": 2.0,
-      "lon": 10.0,
-      "x": 52.7771,
-      "y": 48.76,
-      "zoom": 4.0
+      "lon": 10.0
     },
     {
       "id": "ER",
+      "numeric": "232",
       "name": "エリトリア",
       "sort_name": "Eritrea",
       "lat": 15.0,
-      "lon": 39.0,
-      "x": 60.725,
-      "y": 40.7,
-      "zoom": 3.0
+      "lon": 39.0
     },
     {
       "id": "EE",
+      "numeric": "233",
       "name": "エストニア",
       "sort_name": "Estonia",
       "lat": 59.0,
-      "lon": 26.0,
-      "x": 55.8219,
-      "y": 13.8397,
-      "zoom": 5.0
+      "lon": 26.0
     },
     {
       "id": "SZ",
+      "numeric": "748",
       "name": "エスワティニ",
       "sort_name": "Eswatini",
       "lat": -26.5,
-      "lon": 31.5,
-      "x": 58.4838,
-      "y": 66.4299,
-      "zoom": 5.0
+      "lon": 31.5
     },
     {
       "id": "ET",
+      "numeric": "231",
       "name": "エチオピア",
       "sort_name": "Ethiopia",
       "lat": 8.0,
-      "lon": 38.0,
-      "x": 60.5228,
-      "y": 45.04,
-      "zoom": 3.0
+      "lon": 38.0
     },
     {
       "id": "FJ",
+      "numeric": "242",
       "name": "フィジー",
       "sort_name": "Fiji",
       "lat": -18.0,
-      "lon": 175.0,
-      "x": 97.9063,
-      "y": 61.16,
-      "zoom": 7.0
+      "lon": 175.0
     },
     {
       "id": "FI",
+      "numeric": "246",
       "name": "フィンランド",
       "sort_name": "Finland",
       "lat": 64.0,
-      "lon": 26.0,
-      "x": 55.5441,
-      "y": 11.0329,
-      "zoom": 3.0
+      "lon": 26.0
     },
     {
       "id": "FR",
+      "numeric": "250",
       "name": "フランス",
       "sort_name": "France",
       "lat": 46.0,
-      "lon": 2.0,
-      "x": 50.4949,
-      "y": 21.5362,
-      "zoom": 3.0
+      "lon": 2.0
     },
     {
       "id": "GA",
+      "numeric": "266",
       "name": "ガボン",
       "sort_name": "Gabon",
       "lat": -1.0,
-      "lon": 11.75,
-      "x": 53.2637,
-      "y": 50.62,
-      "zoom": 3.0
+      "lon": 11.75
     },
     {
       "id": "GM",
+      "numeric": "270",
       "name": "ガンビア",
       "sort_name": "Gambia",
       "lat": 13.46667,
-      "lon": -16.56667,
-      "x": 45.4352,
-      "y": 41.6507,
-      "zoom": 5.0
+      "lon": -16.56667
     },
     {
       "id": "GE",
+      "numeric": "268",
       "name": "ジョージア",
       "sort_name": "Georgia",
       "lat": 42.0,
-      "lon": 43.5,
-      "x": 61.0184,
-      "y": 23.9802,
-      "zoom": 5.0
+      "lon": 43.5
     },
     {
       "id": "DE",
+      "numeric": "276",
       "name": "ドイツ",
       "sort_name": "Germany",
       "lat": 51.0,
-      "lon": 9.0,
-      "x": 52.1542,
-      "y": 18.5215,
-      "zoom": 3.0
+      "lon": 9.0
     },
     {
       "id": "GH",
+      "numeric": "288",
       "name": "ガーナ",
       "sort_name": "Ghana",
       "lat": 8.0,
-      "lon": -2.0,
-      "x": 49.4462,
-      "y": 45.04,
-      "zoom": 3.0
+      "lon": -2.0
     },
     {
       "id": "GR",
+      "numeric": "300",
       "name": "ギリシャ",
       "sort_name": "Greece",
       "lat": 39.0,
-      "lon": 22.0,
-      "x": 55.66,
-      "y": 25.8265,
-      "zoom": 3.0
+      "lon": 22.0
     },
     {
       "id": "GD",
+      "numeric": "308",
       "name": "グレナダ",
       "sort_name": "Grenada",
       "lat": 12.11667,
-      "lon": -61.66667,
-      "x": 32.9829,
-      "y": 42.4877,
-      "zoom": 7.0
+      "lon": -61.66667
     },
     {
       "id": "GT",
+      "numeric": "320",
       "name": "グアテマラ",
       "sort_name": "Guatemala",
       "lat": 15.5,
-      "lon": -90.25,
-      "x": 25.1986,
-      "y": 40.39,
-      "zoom": 3.0
+      "lon": -90.25
     },
     {
       "id": "GN",
+      "numeric": "324",
       "name": "ギニア",
       "sort_name": "Guinea",
       "lat": 11.0,
-      "lon": -10.0,
-      "x": 47.2374,
-      "y": 43.18,
-      "zoom": 3.0
+      "lon": -10.0
     },
     {
       "id": "GW",
+      "numeric": "624",
       "name": "ギニアビサウ",
       "sort_name": "Guinea-Bissau",
       "lat": 12.0,
-      "lon": -15.0,
-      "x": 45.8602,
-      "y": 42.56,
-      "zoom": 5.0
+      "lon": -15.0
     },
     {
       "id": "GY",
+      "numeric": "328",
       "name": "ガイアナ",
       "sort_name": "Guyana",
       "lat": 5.0,
-      "lon": -59.0,
-      "x": 33.6341,
-      "y": 46.9,
-      "zoom": 3.0
+      "lon": -59.0
     },
     {
       "id": "HT",
+      "numeric": "332",
       "name": "ハイチ",
       "sort_name": "Haiti",
       "lat": 19.0,
-      "lon": -72.41667,
-      "x": 30.2088,
-      "y": 38.22,
-      "zoom": 5.0
+      "lon": -72.41667
     },
     {
       "id": "VA",
+      "numeric": "336",
       "name": "バチカン市国",
       "sort_name": "Holy See (Vatican City State)",
       "lat": 41.9029,
-      "lon": 12.4534,
-      "x": 53.1561,
-      "y": 24.0398,
-      "zoom": 7.0
+      "lon": 12.4534
     },
     {
       "id": "HN",
+      "numeric": "340",
       "name": "ホンジュラス",
       "sort_name": "Honduras",
       "lat": 15.0,
-      "lon": -86.5,
-      "x": 26.2125,
-      "y": 40.7,
-      "zoom": 3.0
+      "lon": -86.5
     },
     {
       "id": "HU",
+      "numeric": "348",
       "name": "ハンガリー",
       "sort_name": "Hungary",
       "lat": 47.0,
-      "lon": 20.0,
-      "x": 54.9183,
-      "y": 20.9292,
-      "zoom": 3.0
+      "lon": 20.0
     },
     {
       "id": "IS",
+      "numeric": "352",
       "name": "アイスランド",
       "sort_name": "Iceland",
       "lat": 65.0,
-      "lon": -18.0,
-      "x": 46.2015,
-      "y": 10.485,
-      "zoom": 3.0
+      "lon": -18.0
     },
     {
       "id": "IN",
+      "numeric": "356",
       "name": "インド",
       "sort_name": "India",
       "lat": 20.0,
-      "lon": 77.0,
-      "x": 71.0082,
-      "y": 37.6,
-      "zoom": 3.0
+      "lon": 77.0
     },
     {
       "id": "ID",
+      "numeric": "360",
       "name": "インドネシア",
       "sort_name": "Indonesia",
       "lat": -5.0,
-      "lon": 120.0,
-      "x": 83.2867,
-      "y": 53.1,
-      "zoom": 3.0
+      "lon": 120.0
     },
     {
       "id": "IR",
+      "numeric": "364",
       "name": "イラン",
       "sort_name": "Iran, Islamic Republic of",
       "lat": 32.0,
-      "lon": 53.0,
-      "x": 64.0384,
-      "y": 30.1596,
-      "zoom": 3.0
+      "lon": 53.0
     },
     {
       "id": "IQ",
+      "numeric": "368",
       "name": "イラク",
       "sort_name": "Iraq",
       "lat": 33.0,
-      "lon": 44.0,
-      "x": 61.6121,
-      "y": 29.5395,
-      "zoom": 3.0
+      "lon": 44.0
     },
     {
       "id": "IE",
+      "numeric": "372",
       "name": "アイルランド",
       "sort_name": "Ireland",
       "lat": 53.0,
-      "lon": -8.0,
-      "x": 48.114,
-      "y": 17.3325,
-      "zoom": 3.0
+      "lon": -8.0
     },
     {
       "id": "IL",
+      "numeric": "376",
       "name": "イスラエル",
       "sort_name": "Israel",
       "lat": 31.5,
-      "lon": 34.75,
-      "x": 59.2206,
-      "y": 30.4697,
-      "zoom": 5.0
+      "lon": 34.75
     },
     {
       "id": "IT",
+      "numeric": "380",
       "name": "イタリア",
       "sort_name": "Italy",
       "lat": 42.83333,
-      "lon": 12.83333,
-      "x": 53.2355,
-      "y": 23.4692,
-      "zoom": 3.0
+      "lon": 12.83333
     },
     {
       "id": "JM",
+      "numeric": "388",
       "name": "ジャマイカ",
       "sort_name": "Jamaica",
       "lat": 18.25,
-      "lon": -77.5,
-      "x": 28.7931,
-      "y": 38.685,
-      "zoom": 5.0
+      "lon": -77.5
     },
     {
       "id": "JP",
+      "numeric": "392",
       "name": "日本",
       "sort_name": "Japan",
       "lat": 36.0,
-      "lon": 138.0,
-      "x": 85.9875,
-      "y": 27.6807,
-      "zoom": 3.0
+      "lon": 138.0
     },
     {
       "id": "JO",
+      "numeric": "400",
       "name": "ヨルダン",
       "sort_name": "Jordan",
       "lat": 31.0,
-      "lon": 36.0,
-      "x": 59.5686,
-      "y": 30.7798,
-      "zoom": 5.0
+      "lon": 36.0
     },
     {
       "id": "KZ",
+      "numeric": "398",
       "name": "カザフスタン",
       "sort_name": "Kazakhstan",
       "lat": 48.0,
-      "lon": 68.0,
-      "x": 66.6161,
-      "y": 20.324,
-      "zoom": 3.0
+      "lon": 68.0
     },
     {
       "id": "KE",
+      "numeric": "404",
       "name": "ケニア",
       "sort_name": "Kenya",
       "lat": 1.0,
-      "lon": 38.0,
-      "x": 60.5548,
-      "y": 49.38,
-      "zoom": 3.0
+      "lon": 38.0
     },
     {
       "id": "KI",
+      "numeric": "296",
       "name": "キリバス",
       "sort_name": "Kiribati",
       "lat": 1.41667,
-      "lon": 173.0,
-      "x": 98.0491,
-      "y": 49.1217,
-      "zoom": 7.0
+      "lon": 173.0
     },
     {
       "id": "KP",
+      "numeric": "408",
       "name": "北朝鮮",
       "sort_name": "Korea, Democratic People's Republic of",
       "lat": 40.0,
-      "lon": 127.0,
-      "x": 82.512,
-      "y": 25.21,
-      "zoom": 3.0
+      "lon": 127.0
     },
     {
       "id": "KR",
+      "numeric": "410",
       "name": "韓国",
       "sort_name": "Korea, Republic of",
       "lat": 37.0,
-      "lon": 127.5,
-      "x": 83.1062,
-      "y": 27.062,
-      "zoom": 3.0
+      "lon": 127.5
     },
     {
       "id": "KW",
+      "numeric": "414",
       "name": "クウェート",
       "sort_name": "Kuwait",
       "lat": 29.5,
-      "lon": 45.75,
-      "x": 62.2191,
-      "y": 31.7101,
-      "zoom": 5.0
+      "lon": 45.75
     },
     {
       "id": "KG",
+      "numeric": "417",
       "name": "キルギス",
       "sort_name": "Kyrgyzstan",
       "lat": 41.0,
-      "lon": 75.0,
-      "x": 69.1005,
-      "y": 24.5945,
-      "zoom": 3.0
+      "lon": 75.0
     },
     {
       "id": "LA",
+      "numeric": "418",
       "name": "ラオス",
       "sort_name": "Lao People's Democratic Republic",
       "lat": 18.0,
-      "lon": 105.0,
-      "x": 78.7438,
-      "y": 38.84,
-      "zoom": 3.0
+      "lon": 105.0
     },
     {
       "id": "LV",
+      "numeric": "428",
       "name": "ラトビア",
       "sort_name": "Latvia",
       "lat": 57.0,
-      "lon": 25.0,
-      "x": 55.6999,
-      "y": 14.9903,
-      "zoom": 5.0
+      "lon": 25.0
     },
     {
       "id": "LB",
+      "numeric": "422",
       "name": "レバノン",
       "sort_name": "Lebanon",
       "lat": 33.83333,
-      "lon": 35.83333,
-      "x": 59.4269,
-      "y": 29.0229,
-      "zoom": 5.0
+      "lon": 35.83333
     },
     {
       "id": "LS",
+      "numeric": "426",
       "name": "レソト",
       "sort_name": "Lesotho",
       "lat": -29.5,
-      "lon": 28.5,
-      "x": 57.6119,
-      "y": 68.2899,
-      "zoom": 5.0
+      "lon": 28.5
     },
     {
       "id": "LR",
+      "numeric": "430",
       "name": "リベリア",
       "sort_name": "Liberia",
       "lat": 6.5,
-      "lon": -9.5,
-      "x": 47.3669,
-      "y": 45.97,
-      "zoom": 3.0
+      "lon": -9.5
     },
     {
       "id": "LY",
+      "numeric": "434",
       "name": "リビア",
       "sort_name": "Libya",
       "lat": 25.0,
-      "lon": 17.0,
-      "x": 54.5947,
-      "y": 34.5,
-      "zoom": 3.0
+      "lon": 17.0
     },
     {
       "id": "LI",
+      "numeric": "438",
       "name": "リヒテンシュタイン",
       "sort_name": "Liechtenstein",
       "lat": 47.26667,
-      "lon": 9.53333,
-      "x": 52.3405,
-      "y": 20.7676,
-      "zoom": 7.0
+      "lon": 9.53333
     },
     {
       "id": "LT",
+      "numeric": "440",
       "name": "リトアニア",
       "sort_name": "Lithuania",
       "lat": 56.0,
-      "lon": 24.0,
-      "x": 55.5197,
-      "y": 15.571,
-      "zoom": 5.0
+      "lon": 24.0
     },
     {
       "id": "LU",
+      "numeric": "442",
       "name": "ルクセンブルク",
       "sort_name": "Luxembourg",
       "lat": 49.75,
-      "lon": 6.16667,
-      "x": 51.4893,
-      "y": 19.27,
-      "zoom": 7.0
+      "lon": 6.16667
     },
     {
       "id": "MG",
+      "numeric": "450",
       "name": "マダガスカル",
       "sort_name": "Madagascar",
       "lat": -20.0,
-      "lon": 47.0,
-      "x": 62.8232,
-      "y": 62.4,
-      "zoom": 3.0
+      "lon": 47.0
     },
     {
       "id": "MW",
+      "numeric": "454",
       "name": "マラウイ",
       "sort_name": "Malawi",
       "lat": -13.5,
-      "lon": 34.0,
-      "x": 59.3679,
-      "y": 58.37,
-      "zoom": 3.0
+      "lon": 34.0
     },
     {
       "id": "MY",
+      "numeric": "458",
       "name": "マレーシア",
       "sort_name": "Malaysia",
       "lat": 2.5,
-      "lon": 112.5,
-      "x": 81.2375,
-      "y": 48.45,
-      "zoom": 3.0
+      "lon": 112.5
     },
     {
       "id": "MV",
+      "numeric": "462",
       "name": "モルディブ",
       "sort_name": "Maldives",
       "lat": 3.25,
-      "lon": 73.0,
-      "x": 70.2646,
-      "y": 47.985,
-      "zoom": 7.0
+      "lon": 73.0
     },
     {
       "id": "ML",
+      "numeric": "466",
       "name": "マリ",
       "sort_name": "Mali",
       "lat": 17.0,
-      "lon": -4.0,
-      "x": 48.9032,
-      "y": 39.46,
-      "zoom": 3.0
+      "lon": -4.0
     },
     {
       "id": "MT",
+      "numeric": "470",
       "name": "マルタ",
       "sort_name": "Malta",
       "lat": 35.83333,
-      "lon": 14.58333,
-      "x": 53.8057,
-      "y": 27.7839,
-      "zoom": 7.0
+      "lon": 14.58333
     },
     {
       "id": "MH",
+      "numeric": "584",
       "name": "マーシャル諸島",
       "sort_name": "Marshall Islands",
       "lat": 9.0,
-      "lon": 168.0,
-      "x": 96.4888,
-      "y": 44.42,
-      "zoom": 7.0
+      "lon": 168.0
     },
     {
       "id": "MR",
+      "numeric": "478",
       "name": "モーリタニア",
       "sort_name": "Mauritania",
       "lat": 20.0,
-      "lon": -12.0,
-      "x": 46.726,
-      "y": 37.6,
-      "zoom": 3.0
+      "lon": -12.0
     },
     {
       "id": "MU",
+      "numeric": "480",
       "name": "モーリシャス",
       "sort_name": "Mauritius",
       "lat": -20.28333,
-      "lon": 57.55,
-      "x": 65.694,
-      "y": 62.5757,
-      "zoom": 7.0
+      "lon": 57.55
     },
     {
       "id": "MX",
+      "numeric": "484",
       "name": "メキシコ",
       "sort_name": "Mexico",
       "lat": 23.0,
-      "lon": -102.0,
-      "x": 22.3189,
-      "y": 35.74,
-      "zoom": 3.0
+      "lon": -102.0
     },
     {
       "id": "FM",
+      "numeric": "583",
       "name": "ミクロネシア連邦",
       "sort_name": "Micronesia, Federated States of",
       "lat": 6.91667,
-      "lon": 158.25,
-      "x": 93.8517,
-      "y": 45.7117,
-      "zoom": 7.0
+      "lon": 158.25
     },
     {
       "id": "MD",
+      "numeric": "498",
       "name": "モルドバ",
       "sort_name": "Moldova, Republic of",
       "lat": 47.0,
-      "lon": 29.0,
-      "x": 57.1316,
-      "y": 20.9292,
-      "zoom": 5.0
+      "lon": 29.0
     },
     {
       "id": "MC",
+      "numeric": "492",
       "name": "モナコ",
       "sort_name": "Monaco",
       "lat": 43.73333,
-      "lon": 7.4,
-      "x": 51.856,
-      "y": 22.9183,
-      "zoom": 7.0
+      "lon": 7.4
     },
     {
       "id": "MN",
+      "numeric": "496",
       "name": "モンゴル",
       "sort_name": "Mongolia",
       "lat": 46.0,
-      "lon": 105.0,
-      "x": 75.9817,
-      "y": 21.5362,
-      "zoom": 3.0
+      "lon": 105.0
     },
     {
       "id": "ME",
+      "numeric": "499",
       "name": "モンテネグロ",
       "sort_name": "Montenegro",
       "lat": 42.7087,
-      "lon": 19.3744,
-      "x": 54.888,
-      "y": 23.5456,
-      "zoom": 5.0
+      "lon": 19.3744
     },
     {
       "id": "MA",
+      "numeric": "504",
       "name": "モロッコ",
       "sort_name": "Morocco",
       "lat": 32.0,
-      "lon": -5.0,
-      "x": 48.6756,
-      "y": 30.1596,
-      "zoom": 3.0
+      "lon": -5.0
     },
     {
       "id": "MZ",
+      "numeric": "508",
       "name": "モザンビーク",
       "sort_name": "Mozambique",
       "lat": -18.25,
-      "lon": 35.0,
-      "x": 59.5773,
-      "y": 61.315,
-      "zoom": 3.0
+      "lon": 35.0
     },
     {
       "id": "MM",
+      "numeric": "104",
       "name": "ミャンマー",
       "sort_name": "Myanmar",
       "lat": 21.9162,
-      "lon": 95.956,
-      "x": 76.093,
-      "y": 36.4119,
-      "zoom": 3.0
+      "lon": 95.956
     },
     {
       "id": "NA",
+      "numeric": "516",
       "name": "ナミビア",
       "sort_name": "Namibia",
       "lat": -22.0,
-      "lon": 17.0,
-      "x": 54.6221,
-      "y": 63.64,
-      "zoom": 3.0
+      "lon": 17.0
     },
     {
       "id": "NR",
+      "numeric": "520",
       "name": "ナウル",
       "sort_name": "Nauru",
       "lat": -0.53333,
-      "lon": 166.91667,
-      "x": 96.3648,
-      "y": 50.3307,
-      "zoom": 7.0
+      "lon": 166.91667
     },
     {
       "id": "NP",
+      "numeric": "524",
       "name": "ネパール",
       "sort_name": "Nepal",
       "lat": 28.0,
-      "lon": 84.0,
-      "x": 72.534,
-      "y": 32.6401,
-      "zoom": 3.0
+      "lon": 84.0
     },
     {
       "id": "NL",
+      "numeric": "528",
       "name": "オランダ",
       "sort_name": "Netherlands",
       "lat": 52.5,
-      "lon": 5.75,
-      "x": 51.3608,
-      "y": 17.6287,
-      "zoom": 5.0
+      "lon": 5.75
     },
     {
       "id": "NZ",
+      "numeric": "554",
       "name": "ニュージーランド",
       "sort_name": "New Zealand",
       "lat": -41.0,
-      "lon": 174.0,
-      "x": 94.3131,
-      "y": 75.4055,
-      "zoom": 3.0
+      "lon": 174.0
     },
     {
       "id": "NI",
+      "numeric": "558",
       "name": "ニカラグア",
       "sort_name": "Nicaragua",
       "lat": 13.0,
-      "lon": -85.0,
-      "x": 26.5665,
-      "y": 41.94,
-      "zoom": 3.0
+      "lon": -85.0
     },
     {
       "id": "NE",
+      "numeric": "562",
       "name": "ニジェール",
       "sort_name": "Niger",
       "lat": 16.0,
-      "lon": 8.0,
-      "x": 52.1969,
-      "y": 40.08,
-      "zoom": 3.0
+      "lon": 8.0
     },
     {
       "id": "NG",
+      "numeric": "566",
       "name": "ナイジェリア",
       "sort_name": "Nigeria",
       "lat": 10.0,
-      "lon": 8.0,
-      "x": 52.212,
-      "y": 43.8,
-      "zoom": 3.0
+      "lon": 8.0
     },
     {
       "id": "MK",
+      "numeric": "807",
       "name": "北マケドニア",
       "sort_name": "North Macedonia",
       "lat": 41.83333,
-      "lon": 22.0,
-      "x": 55.5776,
-      "y": 24.0825,
-      "zoom": 5.0
+      "lon": 22.0
     },
     {
       "id": "NO",
+      "numeric": "578",
       "name": "ノルウェー",
       "sort_name": "Norway",
       "lat": 62.0,
-      "lon": 10.0,
-      "x": 52.1758,
-      "y": 12.1428,
-      "zoom": 3.0
+      "lon": 10.0
     },
     {
       "id": "OM",
+      "numeric": "512",
       "name": "オマーン",
       "sort_name": "Oman",
       "lat": 21.0,
-      "lon": 57.0,
-      "x": 65.5248,
-      "y": 36.98,
-      "zoom": 3.0
+      "lon": 57.0
     },
     {
       "id": "PK",
+      "numeric": "586",
       "name": "パキスタン",
       "sort_name": "Pakistan",
       "lat": 30.0,
-      "lon": 70.0,
-      "x": 68.6667,
-      "y": 31.4,
-      "zoom": 3.0
+      "lon": 70.0
     },
     {
       "id": "PW",
+      "numeric": "585",
       "name": "パラオ",
       "sort_name": "Palau",
       "lat": 7.5,
-      "lon": 134.5,
-      "x": 87.2572,
-      "y": 45.35,
-      "zoom": 7.0
+      "lon": 134.5
     },
     {
       "id": "PS",
+      "numeric": "275",
       "name": "パレスチナ",
       "sort_name": "Palestine, State of",
       "lat": 31.9522,
-      "lon": 35.2332,
-      "x": 59.334,
-      "y": 30.1893,
-      "zoom": 4.0
+      "lon": 35.2332
     },
     {
       "id": "PA",
+      "numeric": "591",
       "name": "パナマ",
       "sort_name": "Panama",
       "lat": 9.0,
-      "lon": -80.0,
-      "x": 27.8625,
-      "y": 44.42,
-      "zoom": 3.0
+      "lon": -80.0
     },
     {
       "id": "PG",
+      "numeric": "598",
       "name": "パプアニューギニア",
       "sort_name": "Papua New Guinea",
       "lat": -6.0,
-      "lon": 147.0,
-      "x": 90.7554,
-      "y": 53.72,
-      "zoom": 3.0
+      "lon": 147.0
     },
     {
       "id": "PY",
+      "numeric": "600",
       "name": "パラグアイ",
       "sort_name": "Paraguay",
       "lat": -23.0,
-      "lon": -58.0,
-      "x": 34.2597,
-      "y": 64.26,
-      "zoom": 3.0
+      "lon": -58.0
     },
     {
       "id": "PE",
+      "numeric": "604",
       "name": "ペルー",
       "sort_name": "Peru",
       "lat": -10.0,
-      "lon": -76.0,
-      "x": 28.986,
-      "y": 56.2,
-      "zoom": 3.0
+      "lon": -76.0
     },
     {
       "id": "PH",
+      "numeric": "608",
       "name": "フィリピン",
       "sort_name": "Philippines",
       "lat": 13.0,
-      "lon": 122.0,
-      "x": 83.6339,
-      "y": 41.94,
-      "zoom": 3.0
+      "lon": 122.0
     },
     {
       "id": "PL",
+      "numeric": "616",
       "name": "ポーランド",
       "sort_name": "Poland",
       "lat": 52.0,
-      "lon": 20.0,
-      "x": 54.7516,
-      "y": 17.9257,
-      "zoom": 3.0
+      "lon": 20.0
     },
     {
       "id": "PT",
+      "numeric": "620",
       "name": "ポルトガル",
       "sort_name": "Portugal",
       "lat": 39.5,
-      "lon": -8.0,
-      "x": 47.9469,
-      "y": 25.5181,
-      "zoom": 3.0
+      "lon": -8.0
     },
     {
       "id": "QA",
+      "numeric": "634",
       "name": "カタール",
       "sort_name": "Qatar",
       "lat": 25.5,
-      "lon": 51.25,
-      "x": 63.8361,
-      "y": 34.19,
-      "zoom": 5.0
+      "lon": 51.25
     },
     {
       "id": "RO",
+      "numeric": "642",
       "name": "ルーマニア",
       "sort_name": "Romania",
       "lat": 46.0,
-      "lon": 25.0,
-      "x": 56.1861,
-      "y": 21.5362,
-      "zoom": 3.0
+      "lon": 25.0
     },
     {
       "id": "RU",
+      "numeric": "643",
       "name": "ロシア",
       "sort_name": "Russian Federation",
       "lat": 60.0,
-      "lon": 100.0,
-      "x": 72.1833,
-      "y": 13.27,
-      "zoom": 3.0
+      "lon": 100.0
     },
     {
       "id": "RW",
+      "numeric": "646",
       "name": "ルワンダ",
       "sort_name": "Rwanda",
       "lat": -2.0,
-      "lon": 30.0,
-      "x": 58.3312,
-      "y": 51.24,
-      "zoom": 5.0
+      "lon": 30.0
     },
     {
       "id": "KN",
+      "numeric": "659",
       "name": "セントクリストファー・ネービス",
       "sort_name": "Saint Kitts and Nevis",
       "lat": 17.33333,
-      "lon": -62.75,
-      "x": 32.8037,
-      "y": 39.2533,
-      "zoom": 7.0
+      "lon": -62.75
     },
     {
       "id": "LC",
+      "numeric": "662",
       "name": "セントルシア",
       "sort_name": "Saint Lucia",
       "lat": 13.88333,
-      "lon": -60.96667,
-      "x": 33.2098,
-      "y": 41.3923,
-      "zoom": 7.0
+      "lon": -60.96667
     },
     {
       "id": "VC",
+      "numeric": "670",
       "name": "セントビンセント及びグレナディーン諸島",
       "sort_name": "Saint Vincent and the Grenadines",
       "lat": 13.25,
-      "lon": -61.2,
-      "x": 33.1327,
-      "y": 41.785,
-      "zoom": 7.0
+      "lon": -61.2
     },
     {
       "id": "WS",
+      "numeric": "882",
       "name": "サモア",
       "sort_name": "Samoa",
       "lat": -13.58333,
-      "lon": -172.33333,
-      "x": 2.5221,
-      "y": 58.4217,
-      "zoom": 7.0
+      "lon": -172.33333
     },
     {
       "id": "SM",
+      "numeric": "674",
       "name": "サンマリノ",
       "sort_name": "San Marino",
       "lat": 43.76667,
-      "lon": 12.41667,
-      "x": 53.1137,
-      "y": 22.8979,
-      "zoom": 7.0
+      "lon": 12.41667
     },
     {
       "id": "ST",
+      "numeric": "678",
       "name": "サントメ・プリンシペ",
       "sort_name": "Sao Tome and Principe",
       "lat": 1.0,
-      "lon": 7.0,
-      "x": 51.9443,
-      "y": 49.38,
-      "zoom": 7.0
+      "lon": 7.0
     },
     {
       "id": "SA",
+      "numeric": "682",
       "name": "サウジアラビア",
       "sort_name": "Saudi Arabia",
       "lat": 25.0,
-      "lon": 45.0,
-      "x": 62.1625,
-      "y": 34.5,
-      "zoom": 3.0
+      "lon": 45.0
     },
     {
       "id": "SN",
+      "numeric": "686",
       "name": "セネガル",
       "sort_name": "Senegal",
       "lat": 14.0,
-      "lon": -14.0,
-      "x": 46.145,
-      "y": 41.32,
-      "zoom": 3.0
+      "lon": -14.0
     },
     {
       "id": "RS",
+      "numeric": "688",
       "name": "セルビア",
       "sort_name": "Serbia",
       "lat": 44.1305,
-      "lon": 16.42842,
-      "x": 54.1109,
-      "y": 22.6756,
-      "zoom": 3.0
+      "lon": 16.42842
     },
     {
       "id": "SC",
+      "numeric": "690",
       "name": "セーシェル",
       "sort_name": "Seychelles",
       "lat": -4.58333,
-      "lon": 55.66667,
-      "x": 65.4444,
-      "y": 52.8417,
-      "zoom": 7.0
+      "lon": 55.66667
     },
     {
       "id": "SL",
+      "numeric": "694",
       "name": "シエラレオネ",
       "sort_name": "Sierra Leone",
       "lat": 8.5,
-      "lon": -11.5,
-      "x": 46.8166,
-      "y": 44.73,
-      "zoom": 3.0
+      "lon": -11.5
     },
     {
       "id": "SG",
+      "numeric": "702",
       "name": "シンガポール",
       "sort_name": "Singapore",
       "lat": 1.36667,
-      "lon": 103.8,
-      "x": 78.8297,
-      "y": 49.1527,
-      "zoom": 7.0
+      "lon": 103.8
     },
     {
       "id": "SK",
+      "numeric": "703",
       "name": "スロバキア",
       "sort_name": "Slovakia",
       "lat": 48.66667,
-      "lon": 19.5,
-      "x": 54.7441,
-      "y": 19.9217,
-      "zoom": 5.0
+      "lon": 19.5
     },
     {
       "id": "SI",
+      "numeric": "705",
       "name": "スロベニア",
       "sort_name": "Slovenia",
       "lat": 46.11667,
-      "lon": 14.81667,
-      "x": 53.6637,
-      "y": 21.4653,
-      "zoom": 5.0
+      "lon": 14.81667
     },
     {
       "id": "SB",
+      "numeric": "090",
       "name": "ソロモン諸島",
       "sort_name": "Solomon Islands",
       "lat": -8.0,
-      "lon": 159.0,
-      "x": 94.0295,
-      "y": 54.96,
-      "zoom": 4.0
+      "lon": 159.0
     },
     {
       "id": "SO",
+      "numeric": "706",
       "name": "ソマリア",
       "sort_name": "Somalia",
       "lat": 10.0,
-      "lon": 49.0,
-      "x": 63.5485,
-      "y": 43.8,
-      "zoom": 3.0
+      "lon": 49.0
     },
     {
       "id": "ZA",
+      "numeric": "710",
       "name": "南アフリカ",
       "sort_name": "South Africa",
       "lat": -29.0,
-      "lon": 24.0,
-      "x": 56.4197,
-      "y": 67.9799,
-      "zoom": 3.0
+      "lon": 24.0
     },
     {
       "id": "SS",
+      "numeric": "728",
       "name": "南スーダン",
       "sort_name": "South Sudan",
       "lat": 7.0,
-      "lon": 30.0,
-      "x": 58.3127,
-      "y": 45.66,
-      "zoom": 3.0
+      "lon": 30.0
     },
     {
       "id": "ES",
+      "numeric": "724",
       "name": "スペイン",
       "sort_name": "Spain",
       "lat": 40.0,
-      "lon": -4.0,
-      "x": 48.976,
-      "y": 25.21,
-      "zoom": 3.0
+      "lon": -4.0
     },
     {
       "id": "LK",
+      "numeric": "144",
       "name": "スリランカ",
       "sort_name": "Sri Lanka",
       "lat": 7.0,
-      "lon": 81.0,
-      "x": 72.4443,
-      "y": 45.66,
-      "zoom": 3.0
+      "lon": 81.0
     },
     {
       "id": "SD",
+      "numeric": "729",
       "name": "スーダン",
       "sort_name": "Sudan",
       "lat": 15.0,
-      "lon": 30.0,
-      "x": 58.25,
-      "y": 40.7,
-      "zoom": 3.0
+      "lon": 30.0
     },
     {
       "id": "SR",
+      "numeric": "740",
       "name": "スリナム",
       "sort_name": "Suriname",
       "lat": 4.0,
-      "lon": -56.0,
-      "x": 34.4592,
-      "y": 47.52,
-      "zoom": 4.0
+      "lon": -56.0
     },
     {
       "id": "SE",
+      "numeric": "752",
       "name": "スウェーデン",
       "sort_name": "Sweden",
       "lat": 62.0,
-      "lon": 15.0,
-      "x": 53.2638,
-      "y": 12.1428,
-      "zoom": 3.0
+      "lon": 15.0
     },
     {
       "id": "CH",
+      "numeric": "756",
       "name": "スイス",
       "sort_name": "Switzerland",
       "lat": 47.0,
-      "lon": 8.0,
-      "x": 51.9673,
-      "y": 20.9292,
-      "zoom": 4.0
+      "lon": 8.0
     },
     {
       "id": "SY",
+      "numeric": "760",
       "name": "シリア",
       "sort_name": "Syrian Arab Republic",
       "lat": 35.0,
-      "lon": 38.0,
-      "x": 59.9507,
-      "y": 28.3,
-      "zoom": 3.0
+      "lon": 38.0
     },
     {
       "id": "TJ",
+      "numeric": "762",
       "name": "タジキスタン",
       "sort_name": "Tajikistan",
       "lat": 39.0,
-      "lon": 71.0,
-      "x": 68.2662,
-      "y": 25.8265,
-      "zoom": 3.0
+      "lon": 71.0
     },
     {
       "id": "TZ",
+      "numeric": "834",
       "name": "タンザニア",
       "sort_name": "Tanzania, United Republic of",
       "lat": -6.0,
-      "lon": 35.0,
-      "x": 59.7037,
-      "y": 53.72,
-      "zoom": 3.0
+      "lon": 35.0
     },
     {
       "id": "TH",
+      "numeric": "764",
       "name": "タイ",
       "sort_name": "Thailand",
       "lat": 15.0,
-      "lon": 100.0,
-      "x": 77.5,
-      "y": 40.7,
-      "zoom": 3.0
+      "lon": 100.0
     },
     {
       "id": "TL",
+      "numeric": "626",
       "name": "東ティモール",
       "sort_name": "Timor-Leste",
       "lat": -8.83333,
-      "lon": 125.91667,
-      "x": 84.8478,
-      "y": 55.4767,
-      "zoom": 5.0
+      "lon": 125.91667
     },
     {
       "id": "TG",
+      "numeric": "768",
       "name": "トーゴ",
       "sort_name": "Togo",
       "lat": 8.0,
-      "lon": 1.16667,
-      "x": 50.3231,
-      "y": 45.04,
-      "zoom": 3.0
+      "lon": 1.16667
     },
     {
       "id": "TO",
+      "numeric": "776",
       "name": "トンガ",
       "sort_name": "Tonga",
       "lat": -20.0,
-      "lon": -175.0,
-      "x": 2.2542,
-      "y": 62.4,
-      "zoom": 7.0
+      "lon": -175.0
     },
     {
       "id": "TT",
+      "numeric": "780",
       "name": "トリニダード・トバゴ",
       "sort_name": "Trinidad and Tobago",
       "lat": 11.0,
-      "lon": -61.0,
-      "x": 33.1484,
-      "y": 43.18,
-      "zoom": 5.0
+      "lon": -61.0
     },
     {
       "id": "TN",
+      "numeric": "788",
       "name": "チュニジア",
       "sort_name": "Tunisia",
       "lat": 34.0,
-      "lon": 9.0,
-      "x": 52.3662,
-      "y": 28.9196,
-      "zoom": 3.0
+      "lon": 9.0
     },
     {
       "id": "TM",
+      "numeric": "795",
       "name": "トルクメニスタン",
       "sort_name": "Turkmenistan",
       "lat": 40.0,
-      "lon": 60.0,
-      "x": 65.36,
-      "y": 25.21,
-      "zoom": 3.0
+      "lon": 60.0
     },
     {
       "id": "TV",
+      "numeric": "798",
       "name": "ツバル",
       "sort_name": "Tuvalu",
       "lat": -8.0,
-      "lon": 178.0,
-      "x": 99.2908,
-      "y": 54.96,
-      "zoom": 7.0
+      "lon": 178.0
     },
     {
       "id": "TR",
+      "numeric": "792",
       "name": "トルコ",
       "sort_name": "Türkiye",
       "lat": 39.0,
-      "lon": 35.0,
-      "x": 59.0045,
-      "y": 25.8265,
-      "zoom": 3.0
+      "lon": 35.0
     },
     {
       "id": "UG",
+      "numeric": "800",
       "name": "ウガンダ",
       "sort_name": "Uganda",
       "lat": 1.0,
-      "lon": 32.0,
-      "x": 58.8883,
-      "y": 49.38,
-      "zoom": 3.0
+      "lon": 32.0
     },
     {
       "id": "UA",
+      "numeric": "804",
       "name": "ウクライナ",
       "sort_name": "Ukraine",
       "lat": 49.0,
-      "lon": 32.0,
-      "x": 57.7679,
-      "y": 19.7209,
-      "zoom": 3.0
+      "lon": 32.0
     },
     {
       "id": "AE",
+      "numeric": "784",
       "name": "アラブ首長国連邦",
       "sort_name": "United Arab Emirates",
       "lat": 24.0,
-      "lon": 54.0,
-      "x": 64.626,
-      "y": 35.12,
-      "zoom": 4.0
+      "lon": 54.0
     },
     {
       "id": "GB",
+      "numeric": "826",
       "name": "イギリス",
       "sort_name": "United Kingdom",
       "lat": 54.0,
-      "lon": -2.0,
-      "x": 49.5323,
-      "y": 16.7422,
-      "zoom": 3.0
+      "lon": -2.0
     },
     {
       "id": "US",
+      "numeric": "840",
       "name": "アメリカ合衆国",
       "sort_name": "United States",
       "lat": 38.0,
-      "lon": -97.0,
-      "x": 24.9266,
-      "y": 26.4439,
-      "zoom": 3.0
+      "lon": -97.0
     },
     {
       "id": "UY",
+      "numeric": "858",
       "name": "ウルグアイ",
       "sort_name": "Uruguay",
       "lat": -33.0,
-      "lon": -56.0,
-      "x": 35.221,
-      "y": 70.4605,
-      "zoom": 3.0
+      "lon": -56.0
     },
     {
       "id": "UZ",
+      "numeric": "860",
       "name": "ウズベキスタン",
       "sort_name": "Uzbekistan",
       "lat": 41.0,
-      "lon": 64.0,
-      "x": 66.2991,
-      "y": 24.5945,
-      "zoom": 3.0
+      "lon": 64.0
     },
     {
       "id": "VU",
+      "numeric": "548",
       "name": "バヌアツ",
       "sort_name": "Vanuatu",
       "lat": -16.0,
-      "lon": 167.0,
-      "x": 95.8596,
-      "y": 59.92,
-      "zoom": 7.0
+      "lon": 167.0
     },
     {
       "id": "VE",
+      "numeric": "862",
       "name": "ベネズエラ",
       "sort_name": "Venezuela, Bolivarian Republic of",
       "lat": 8.0,
-      "lon": -66.0,
-      "x": 31.7236,
-      "y": 45.04,
-      "zoom": 3.0
+      "lon": -66.0
     },
     {
       "id": "VN",
+      "numeric": "704",
       "name": "ベトナム",
       "sort_name": "Viet Nam",
       "lat": 16.16667,
-      "lon": 107.83333,
-      "x": 79.6046,
-      "y": 39.9767,
-      "zoom": 3.0
+      "lon": 107.83333
     },
     {
       "id": "YE",
+      "numeric": "887",
       "name": "イエメン",
       "sort_name": "Yemen",
       "lat": 15.0,
-      "lon": 48.0,
-      "x": 63.2,
-      "y": 40.7,
-      "zoom": 3.0
+      "lon": 48.0
     },
     {
       "id": "ZM",
+      "numeric": "894",
       "name": "ザンビア",
       "sort_name": "Zambia",
       "lat": -15.0,
-      "lon": 30.0,
-      "x": 58.25,
-      "y": 59.3,
-      "zoom": 3.0
+      "lon": 30.0
     },
     {
       "id": "ZW",
+      "numeric": "716",
       "name": "ジンバブエ",
       "sort_name": "Zimbabwe",
       "lat": -20.0,
-      "lon": 30.0,
-      "x": 58.185,
-      "y": 62.4,
-      "zoom": 3.0
+      "lon": 30.0
     }
   ]
 }

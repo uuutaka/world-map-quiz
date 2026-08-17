@@ -1,4 +1,4 @@
-const CACHE_NAME='world-map-quiz-rebuilt-v3';
+const CACHE_NAME='world-map-quiz-rebuilt-v4';
 const LOCAL=['./','./index.html','./countries.json','./manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png','./icons/icon-maskable-512.png','./icons/apple-touch-icon.png'];
 const EXTERNAL=[
  'https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js',

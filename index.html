@@ -122,14 +122,19 @@ function renderZoom(c){
   const target10=mapData.f10.get(c.numeric),focus=focusFeature(target10,c);
   if(!focus){renderFallbackZoom(c);return}
   const projection=d3.geoMercator();
-  projection.fitExtent([[105,58],[895,462]],focus);
-  // Keep more surrounding countries visible in zoom mode.
-  // 0.82 reduces the general zoom; the 5200 cap prevents tiny countries
-  // from filling the whole screen.
-  let s=projection.scale()*0.82;
-  s=Math.max(360,Math.min(5200,s));
-  const center=d3.geoCentroid(focus);
-  projection.center(center).translate([500,450]).scale(s).clipExtent([[0,0],[1000,900]]);
+  // Fit the target into a central window and keep the fit result intact.
+  // This guarantees that large countries such as Australia stay on screen.
+  // The generous outer space leaves surrounding countries visible.
+  projection.fitExtent([[300,250],[700,650]],focus);
+  const fittedScale=projection.scale();
+  // Tiny countries can otherwise be magnified excessively. Only in that
+  // case do we cap the scale and recenter on the target.
+  const maxScale=1800;
+  if(fittedScale>maxScale){
+    const center=d3.geoCentroid(focus);
+    projection.center(center).translate([500,450]).scale(maxScale);
+  }
+  projection.clipExtent([[0,0],[1000,900]]);
   const path=d3.geoPath(projection);
   // 50m surrounding geography for speed and a clean regional context.
   for(const f of mapData.fc50){const id=normId(f.id);if(id===c.numeric)continue;const d=path(f);if(d)svgPath(d,'country','#fbfcfd','none',0)}

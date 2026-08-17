@@ -93,6 +93,7 @@ function toggleFlip(){setFlip(!el.card.classList.contains('flipped'))}
 function current(){return session.cards[session.index]}
 function svgClear(){while(el.mapSvg.firstChild)el.mapSvg.removeChild(el.mapSvg.firstChild)}
 function svgPath(d,cls,fill,stroke,width){const p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d',d||'');if(fill)p.setAttribute('fill',fill);else p.setAttribute('fill','none');if(stroke)p.setAttribute('stroke',stroke);if(width)p.setAttribute('stroke-width',String(width));p.setAttribute('stroke-linejoin','round');p.setAttribute('stroke-linecap','round');p.setAttribute('vector-effect','non-scaling-stroke');if(cls)p.setAttribute('class',cls);el.mapSvg.appendChild(p);return p}
+function drawRing(projection,c,r=14,width=4){const pt=projection([c.lon,c.lat]);if(!pt)return;const ns='http://www.w3.org/2000/svg';const halo=document.createElementNS(ns,'circle');halo.setAttribute('cx',pt[0]);halo.setAttribute('cy',pt[1]);halo.setAttribute('r',r);halo.setAttribute('fill','none');halo.setAttribute('stroke','#ffffff');halo.setAttribute('stroke-width',String(width+3));halo.setAttribute('opacity','0.95');halo.setAttribute('vector-effect','non-scaling-stroke');el.mapSvg.appendChild(halo);const ring=document.createElementNS(ns,'circle');ring.setAttribute('cx',pt[0]);ring.setAttribute('cy',pt[1]);ring.setAttribute('r',r);ring.setAttribute('fill','none');ring.setAttribute('stroke','#d92d20');ring.setAttribute('stroke-width',String(width));ring.setAttribute('vector-effect','non-scaling-stroke');el.mapSvg.appendChild(ring)}
 function focusFeature(feature,c){
   if(!feature)return null;
   if(feature.geometry.type!=='MultiPolygon')return feature;
@@ -114,42 +115,46 @@ function renderFull(c){
   // Countries at 110m are enough for the overview; the ring provides precise location guidance.
   for(const f of mapData.fc110){const id=normId(f.id),target=id===c.numeric;svgPath(path(f),target?'target':'country',target?'#f6a0ad':'#fbfcfd',target?'#d92d20':'none',target?0.9:0)}
   svgPath(path(mapData.mesh110),'borders',null,'#87919d',0.55);
-  const pt=projection([c.lon,c.lat]);
-  if(pt){const ring=document.createElementNS('http://www.w3.org/2000/svg','circle');ring.setAttribute('cx',pt[0]);ring.setAttribute('cy',pt[1]);ring.setAttribute('r','14');ring.setAttribute('fill','none');ring.setAttribute('stroke','#d92d20');ring.setAttribute('stroke-width','4');ring.setAttribute('vector-effect','non-scaling-stroke');el.mapSvg.appendChild(ring)}
+  drawRing(projection,c,14,4);
 }
 function renderZoom(c){
   zoomed=true;el.mapShell.classList.add('zoomed');el.mapHint.textContent='地図をタップ：世界全体に戻る';el.mapSvg.setAttribute('viewBox','0 0 1000 900');svgClear();
   const target10=mapData.f10.get(c.numeric),focus=focusFeature(target10,c);
   if(!focus){renderFallbackZoom(c);return}
+  // Fiji and Kiribati straddle the antimeridian. Rotating the globe before
+  // fitting prevents their geometry from being treated as spanning the world.
+  const datelineIds=new Set(['FJ','KI']);
   const projection=d3.geoMercator();
-  // Fit the target into a central window and keep the fit result intact.
-  // This guarantees that large countries such as Australia stay on screen.
-  // The generous outer space leaves surrounding countries visible.
+  if(datelineIds.has(c.id))projection.rotate([-c.lon,0]);
   projection.fitExtent([[300,250],[700,650]],focus);
   const fittedScale=projection.scale();
-  // Tiny countries can otherwise be magnified excessively. Only in that
-  // case do we cap the scale and recenter on the target.
-  const maxScale=1800;
+  const maxScale=(c.id==='FJ'||c.id==='KI')?1350:1800;
   if(fittedScale>maxScale){
     const center=d3.geoCentroid(focus);
-    projection.center(center).translate([500,450]).scale(maxScale);
+    projection.scale(maxScale).translate([0,0]);
+    const pp=projection(center);
+    if(pp)projection.translate([500-pp[0],450-pp[1]]);
   }
   projection.clipExtent([[0,0],[1000,900]]);
   const path=d3.geoPath(projection);
-  // 50m surrounding geography for speed and a clean regional context.
   for(const f of mapData.fc50){const id=normId(f.id);if(id===c.numeric)continue;const d=path(f);if(d)svgPath(d,'country','#fbfcfd','none',0)}
   svgPath(path(mapData.mesh50),'borders',null,'#7d8793',0.9);
-  // Target alone is rendered from 1:10m data for crisp coastline and accurate fill.
   const td=path(target10);
   if(td)svgPath(td,'target','#f6a0ad','#d92d20',2.1);
-  // Intentionally no red ring in zoom mode.
+  // Normal countries are clear enough without a ring in zoom mode. For very
+  // small states, a small locator ring supplements the polygon itself.
+  const microRingIds=new Set(['MC','VA','SM','LI','AD','MT','SG','NR','TV','KN']);
+  if(microRingIds.has(c.id))drawRing(projection,c,18,3.5);
 }
 function renderFallbackZoom(c){
   el.mapSvg.setAttribute('viewBox','0 0 1000 900');
-  const projection=d3.geoMercator().center([c.lon,c.lat]).translate([500,450]).scale(3500).clipExtent([[0,0],[1000,900]]),path=d3.geoPath(projection);
+  const specialScale={MC:7200,VA:9000,SM:6500,LI:5600,AD:5000,SG:5200,MT:4800};
+  const scale=specialScale[c.id]||3500;
+  const projection=d3.geoMercator().center([c.lon,c.lat]).translate([500,450]).scale(scale).clipExtent([[0,0],[1000,900]]),path=d3.geoPath(projection);
   for(const f of mapData.fc50){const d=path(f);if(d)svgPath(d,'country','#fbfcfd','none',0)}
   svgPath(path(mapData.mesh50),'borders',null,'#7d8793',0.9);
-  const pt=projection([c.lon,c.lat]);if(pt){const dot=document.createElementNS('http://www.w3.org/2000/svg','circle');dot.setAttribute('cx',pt[0]);dot.setAttribute('cy',pt[1]);dot.setAttribute('r','8');dot.setAttribute('fill','#f6a0ad');dot.setAttribute('stroke','#d92d20');dot.setAttribute('stroke-width','2');el.mapSvg.appendChild(dot)}
+  const pt=projection([c.lon,c.lat]);if(pt){const dot=document.createElementNS('http://www.w3.org/2000/svg','circle');dot.setAttribute('cx',pt[0]);dot.setAttribute('cy',pt[1]);dot.setAttribute('r','6');dot.setAttribute('fill','#f6a0ad');dot.setAttribute('stroke','#d92d20');dot.setAttribute('stroke-width','1.5');el.mapSvg.appendChild(dot)}
+  drawRing(projection,c,20,3.5);
 }
 function toggleMap(){if(!session)return;zoomed?renderFull(current()):renderZoom(current())}
 function render(){const c=current(),i=session.index,n=session.cards.length;setFlip(false);el.answer.textContent=c.name;el.progress.textContent=`${i+1} / ${n} 枚`;el.bar.style.width=`${(i+1)/n*100}%`;el.prev.disabled=i===0;el.next.textContent=i===n-1?'終了':'次へ';renderFull(c)}
